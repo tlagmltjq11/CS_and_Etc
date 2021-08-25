@@ -221,13 +221,12 @@ CLR이 설치된 플랫폼에서 최적화하여 컴파일한 후 **플랫폼 �
 <br>
 <br>
 
+## .NET 개념정리
+
 **자세한 과정 이미지**<br>
 <img src="https://user-images.githubusercontent.com/43705434/130810574-f29f2b71-0c1a-4fd8-a865-dc373229abda.PNG" width="500" height="450"><br>
 <br>
 <br>
-<br>
-
-**개념정리**<br>
 
 **CLR의 동작원리**<br>
 
@@ -248,7 +247,7 @@ IL(Intermediate Language)이라는 중간 언어로 작성된 실행 파일을 �
 
 **CIL**(Common Intermidiate Language, 공통 중간 언어)<br>
 **.NET 환경의 언어로 작성된 소스 코드를 컴파일했을 때 만들어지는 바이트코드** 를 의미하며, **어셈블리 코드의 일종**이다.<br>
-.NET 환경의 언어로 개발할 때, 소스코드를 컴파일하게 되면 컴파일 타임에 해당 언어의 컴파일러에 의해 우선 바이트코드인 CIL Code를 생성한다.<br>
+.NET 환경의 언어로 개발할 때, 컴파일하게 되면 컴파일 타임에 해당 언어의 컴파일러에 의해 우선 바이트코드인 CIL Code를 생성한다.<br>
 그리고 **CLR은 런타임에 JIT(Just-In-Time) 또는 AOT(Ahead-Of-Time) 컴파일 방식을 이용하여 CIL Code를 OS가 이해할 수 있는<br>
 Native Code 로 변환하게 된다.**<br>
 <br>
@@ -275,8 +274,8 @@ CIL Code를 C++ 컴파일러를 통해 .NET Native 이진코드로 변환하게 
 .NET Native는 C++와 유사하지만, C++처럼 Unmanaged는 아니다.<br>
 C++는 CRT.dll(C 런타임)을 사용하는 데 비해,<br>
 .NET Native는 MRT.dll(최소 CLR 런타임)을 사용하며 여기에 GC 코드가 포함되어 있다.<br>
-단 미리 번역해둔 파일을 저장하기 때문에 용량이 커지고 설치속도가 느려질 수 있다.
-또한 컴파일 타임에 결정 될 수 없는 제네릭 같은 부분은 제약 사항이 존재한다고 한다.
+단 미리 번역해둔 파일을 저장하기 때문에 용량이 커지고 설치속도가 느려질 수 있다.<br>
+또한 컴파일 타임에 결정 될 수 없는 제네릭 같은 부분은 제약 사항이 존재한다고 한다.<br>
 <br>
 <br>
 
