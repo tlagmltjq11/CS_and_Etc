@@ -41,7 +41,7 @@
 
 ## 링크
 
-<img src="https://user-images.githubusercontent.com/43705434/130770499-9a3dcc5b-493b-42b7-a63b-ea33af87b8d4.PNG" width="450" height="250"><br>
+<img src="https://user-images.githubusercontent.com/43705434/130770499-9a3dcc5b-493b-42b7-a63b-ea33af87b8d4.PNG" width="450" height="400"><br>
 <br>
 
 프로젝트를 진행하다 보면, 소스파일이 여러개 생성되고<br>
@@ -71,7 +71,7 @@ A 소스파일에서 B 소스파일에 존재하는 함수(메서드)를 호출�
 
 ## 플랫폼 의존적
 
-<img src="https://user-images.githubusercontent.com/43705434/130770505-ba6bd91c-5285-4e15-aa93-9ea81f6102a8.PNG" width="450" height="250"><br>
+<img src="https://user-images.githubusercontent.com/43705434/130770505-ba6bd91c-5285-4e15-aa93-9ea81f6102a8.PNG" width="550" height="250"><br>
 <br>
 
 플랫폼에 의존적이라는 말은 가장 쉽게 이해하자면 **윈도우 실행파일을 맥OS 에서 실행하지 못하는 상황을 생각하면 된다.**<br>
@@ -86,6 +86,7 @@ A 소스파일에서 B 소스파일에 존재하는 함수(메서드)를 호출�
 우리가 프로그램을 내려받을 때 윈도우용, 맥용, 64비트, 32비트 등 이렇게 각 버전에 맞는 프로그램을<br>
 설치하는 이유가 이러한 것 때문이라고 보면 된다. (또한 운영체제별로 지원하는 것도 조금씩 다르다.)<br>
 <br>
+<br>
 
 ## 플랫폼 독립적<br>
 예전의 C, C++의 경우 개별 환경이 프로그램의 실행 시간에 영향을 미치는 문제가 있었다.<br>
@@ -98,7 +99,7 @@ JVM만 실행 가능하다면 실행할 수 있다는 장점을 통해 인기를
 
 **즉 VM(가상머신)이라는 개념을 도입해 플랫폼에 독립적인 실행환경을 구축했다는 의미이다.**<br>
 
-<img src="https://user-images.githubusercontent.com/43705434/130770507-be9ea2aa-f07e-413f-bd8a-9e143d8e0d04.PNG" width="450" height="250"><br>
+<img src="https://user-images.githubusercontent.com/43705434/130770507-be9ea2aa-f07e-413f-bd8a-9e143d8e0d04.PNG" width="550" height="250"><br>
 <br>
 
 그렇다면 가상머신이란 무엇일까?<br>
