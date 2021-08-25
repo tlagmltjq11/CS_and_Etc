@@ -156,9 +156,14 @@ hello.o 파일을 입력으로 hello.exe 파일 생성<br>
 <br>
 
 ## C# 빌드(실행) 과정
-닷넷기반 언어(C#,VB.NET 등)로 작성한 프로그램의 실행 과정을 살펴 본다.<br>
+<img src="https://user-images.githubusercontent.com/43705434/130810569-277dc1c3-8627-4d71-9bbb-4096d441bc47.PNG" width="550" height="450"><br>
+<br>
 
-![c#빌드](https://user-images.githubusercontent.com/43705434/130810569-277dc1c3-8627-4d71-9bbb-4096d441bc47.PNG)<br>
+닷넷기반 언어(C#,VB.NET 등)로 작성한 프로그램의 실행 과정을 살펴 본다.<br>
+<br>
+<br>
+
+<img src="https://user-images.githubusercontent.com/43705434/130810547-deadf277-dd4b-4eb7-9033-e04b74d19e61.PNG" width="550" height="450"><br>
 <br>
 
 [1] C# 컴파일러가 소스코드를 **컴파일 한다.**<br>
@@ -172,24 +177,26 @@ csc.exe 라는 C# 컴파일러가 동작한다.<br>
 이 결과로 각기 다른 언어로 작성한 닷넷 소스라 할 지라도 상호 작용이 가능하게 되는 것이다.**<br>
 또한 이 exe (or dll) 파일에는 소스 코드내의 **클래스를 설명하는 메타 데이터와 매니페스트** 정보가 포함된다.<br>
 
-![c#빌드과정1](https://user-images.githubusercontent.com/43705434/130810547-deadf277-dd4b-4eb7-9033-e04b74d19e61.PNG)<br>
-<br>
-
-CIL을 거쳐야하는 이유<br>
+**CIL을 거쳐야하는 이유**<br>
 **즉 1차적으로 CIL로 변환할 때 모든.NET 환경의 언어가 동일하게 변환되기 때문에 언어 간 통합이 가능해지고,<br> 
 해당 CIL을 CLR이 플랫폼에 맞춰 최적화하며 Jit 컴파일러를 실행시켜 현재 플랫폼에 맞는 기계어로 최종변환을 하기 때문에<br> 
 중간단계인 CIL를 한번 거쳐야 한다는 것이다. -> 플랫폼에 독립적으로 실행이 가능해지는 것이다.**<br>
 <br>
+<br>
 
 [2] 1번에서 만들어진 중간언어는 **실제 실행 시** 실행단계로 넘어 간다.<br>
+<br>
+<br>
+
+<img src="https://user-images.githubusercontent.com/43705434/130810551-881546f0-b637-4464-bc88-5f988c1dc1d0.PNG" width="550" height="450"><br>
+<br>
 
 [3] 이제 부터 그 유명한 **CLR 의 영역이다.**<br>
 CLR 은 1번에서 컴파일된 중간코드를 실제로 실행시키기 위한 각종 서비스들의 모음이라 할 수 있다.<br>
 다시 말해 닷넷으로 만든 프로그램의 실행환경을 제공하는 것이다.<br>
 실행을 위해 IL 코드가 CLR로 호스트 될때 제일 처음 CLR 내부의 Class Loader 에 의해 클래스들의 레이아웃 로드와<br>
 메타데이타를 로드하고 중간 여러 과정을 거쳐 **메모리에 로드한다.**<br>
-
-![c#빌드과정2](https://user-images.githubusercontent.com/43705434/130810551-881546f0-b637-4464-bc88-5f988c1dc1d0.PNG)<br>
+<br>
 <br>
 
 [4] **메모리에 올라간 어셈블리는 실행되는 플랫폼이 이해 할 수 있는 명령어(Native Code),<br>
@@ -200,8 +207,11 @@ jitter 에 의해 컴파일된 Native Code 는 다음번 사용을 위해(재사
 즉, 다음번 실행시에는 CIL 의 컴파일 단계가 생략 된다.<br>
 **C#에서 성능 테스트를 위해 코드를 반복 수행할 때 첫 수행이 아주 느리고,<br>
 다음 수행부터 비슷하게 빠른 현상을 발견할 수 있는데, 이것은 바로 JIT 컴파일 때문이다.**<br>
+<br>
+<br>
 
 [5] 이제서야 우리는 우리가 작성한 프로그램을 모니터를 통해 눈으로 확인 할 수 있게 되었다.<br>
+<br>
 <br>
 
 위 과정에서 눈여겨 보아야 할 것은 **컴파일이 2번이나 된다는 것이다.**<br> 
@@ -209,9 +219,11 @@ CLR은 C#뿐만 아니라 다른언어도 지원하도록 설계되어 있다.<b
 **IL이 서로 다른언어를 이어주는 역할**을 하고,<br>
 CLR이 설치된 플랫폼에서 최적화하여 컴파일한 후 **플랫폼 독립적**으로 실행되는 것이다.<br>
 <br>
+<br>
 
 **자세한 과정 이미지**<br>
-![c#빌드총과정](https://user-images.githubusercontent.com/43705434/130810574-f29f2b71-0c1a-4fd8-a865-dc373229abda.PNG)<br>
+<img src="https://user-images.githubusercontent.com/43705434/130810574-f29f2b71-0c1a-4fd8-a865-dc373229abda.PNG" width="500" height="450"><br>
+<br>
 <br>
 <br>
 
@@ -219,7 +231,7 @@ CLR이 설치된 플랫폼에서 최적화하여 컴파일한 후 **플랫폼 �
 
 **CLR의 동작원리**<br>
 
-![CLR구조](https://user-images.githubusercontent.com/43705434/130810546-22d73b43-b0e3-467a-a571-7442d1147d68.PNG)<br>
+<img src="https://user-images.githubusercontent.com/43705434/130810546-22d73b43-b0e3-467a-a571-7442d1147d68.PNG" width="400" height="400"><br>
 <br>
 
 우리가 Source code를 작성하면 C# Compiler(Language Compiler)가<br>
@@ -232,11 +244,14 @@ IL(Intermediate Language)이라는 중간 언어로 작성된 실행 파일을 �
 평균의 성능을 내는 것과 컴파일 비용이 조금 부담스럽긴 해도 기계에 최적화되어<br>
 최고의 성능을 내는 것, 어느 쪽이 더 나은가 보면 보통 **어떠한 기계에서도 사용하는 것이 가장 좋을 것이다.**<br>
 <br>
+<br>
 
 **CIL**(Common Intermidiate Language, 공통 중간 언어)<br>
 **.NET 환경의 언어로 작성된 소스 코드를 컴파일했을 때 만들어지는 바이트코드** 를 의미하며, **어셈블리 코드의 일종**이다.<br>
 .NET 환경의 언어로 개발할 때, 소스코드를 컴파일하게 되면 컴파일 타임에 해당 언어의 컴파일러에 의해 우선 바이트코드인 CIL Code를 생성한다.<br>
-그리고 **CLR은 런타임에 JIT(Just-In-Time) 또는 AOT(Ahead-Of-Time) 컴파일 방식을 이용하여 CIL Code를 OS가 이해할 수 있는 Native Code 로 변환하게 된다.**<br>
+그리고 **CLR은 런타임에 JIT(Just-In-Time) 또는 AOT(Ahead-Of-Time) 컴파일 방식을 이용하여 CIL Code를 OS가 이해할 수 있는<br>
+Native Code 로 변환하게 된다.**<br>
+<br>
 <br>
 
 **JIT 컴파일** (CLR이 아니라 운영체제에 존재하는 것임.)<br>
@@ -250,6 +265,7 @@ JIT : Just-In-Time<br>
 JIT 컴파일 방식 덕분에, 개발자는 프로그램의 **실행 환경을 고려하지 않고 개발할 수 있다는 장점**이 있다.<br>
 하지만 JIT 컴파일 방식은 메모리를 많이 사용하고 속도도 떨어진다는 단점이 있다.<br>
 <br>
+<br>
 
 **AOT 컴파일**<br>
 AOT : Ahead-Of-Time<br>
@@ -262,9 +278,11 @@ C++는 CRT.dll(C 런타임)을 사용하는 데 비해,<br>
 단 미리 번역해둔 파일을 저장하기 때문에 용량이 커지고 설치속도가 느려질 수 있다.
 또한 컴파일 타임에 결정 될 수 없는 제네릭 같은 부분은 제약 사항이 존재한다고 한다.
 <br>
+<br>
 
 **유니티에서 빌드 시 컴파일 방식 선택 옵션**<br>
-![유니티빌드시선택목록](https://user-images.githubusercontent.com/43705434/130810538-e4c6888c-de24-48ec-a21e-1d1bcd4a3143.PNG)<br>
+<img src="https://user-images.githubusercontent.com/43705434/130810538-e4c6888c-de24-48ec-a21e-1d1bcd4a3143.PNG" width="450" height="400"><br>
+<br>
 <br>
 
 **.NET Framework**<br>
@@ -277,6 +295,7 @@ CLR은 공통 언어 런타임 클래스이며, **보안, 메모리, 스레드 �
 -> 유니티는 멀티 플랫폼을 지원하는 게임 엔진이고, 이를 위한 개발환경이 필요했기에 모노 닷넷을 개발환경으로 선택한 것.<br>
 -> 따라서 유니티를 사용하는 개발자들은 원래 C# 이라는 언어가 가진 제한사항 (윈도우에서만 실행가능 한 점)을 벗어나<br>
 -> 여러 플랫폼에서도 실행가능 한 게임을 제작할 수 있는 것이다.**<br>
+<br>
 <br>
 
 C언어가 (상대적으로) 빠른 이유<br>
