@@ -62,12 +62,12 @@ A객체를 할당하고 포인터를 A객체가 차지하고 있는 공간 바�
 <br>
 <br>
 
+![gc3](https://user-images.githubusercontent.com/43705434/132116916-710bde4a-e33f-4e4c-a406-7c8b07490f8b.PNG)<br>
+<br>
+
 ```c#
 Object B = new Object();
 ```
-
-![gc3](https://user-images.githubusercontent.com/43705434/132116916-710bde4a-e33f-4e4c-a406-7c8b07490f8b.PNG)<br>
-<br>
 
 객체를 또 하나 만들어 보겠다.<br>
 두 번째로 만드는 객체는 첫 번째 객체의 바로 뒤,<br>
@@ -97,6 +97,7 @@ if(true)
 a는 스택에 할당되고 a가 참조하고 있는 메모리는 힙 메모리의 주소를 참고하고 있다.<br>
 
 ![gc4](https://user-images.githubusercontent.com/43705434/132116917-4e0b7b1f-9e02-4cab-8608-f3a4c7fc94b9.PNG)<br>
+<br>
 <br>
 <br>
 
