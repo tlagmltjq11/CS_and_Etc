@@ -377,7 +377,70 @@ GC는 루트 목록을 돌면서 쓰레기를 찾아낸다.<br>
 <br>
 <br>
 
-## GC 알고리즘 종류
+## GC에 사용되는 알고리즘
+GC 알고리즘의 중요 목적<br>
+1. **어떻게 가비지 객체들을 선별하는가**<br>
+2. **GC가 동작하는 동안 프로그램이 중단되는 시간을 어떻게 줄일 수 있는가**<br>
+<br>
+
+**Mark and Sweep 알고리즘**<br>
+**Mark:** 필요한 Object를 표시 한다.<br>
+이러한 작업을 하기 위해 Garbage Collection Root라고 불리는 특별한 Object를 계속 추적한다.<br>
+GC Root는 현재 실행 되고 있는 Method에 local variable이 될 수 도 있고 혹은 로드된 클래스의 static variables일 수도 있다.<br>
+Mark and Sweep알고리즘 동안 GC는 모든 GC Root 그래프를 돌아 다니면서 필요한 Object를 발견 하기 위해 노력한다.<br>
+<br>
+
+![gc알고리즘1](https://user-images.githubusercontent.com/43705434/132120846-f4dd971c-85f4-4b45-ab06-1d02a824d22b.PNG)<br>
+<br>
+
+위의 그림은 GC Root 그래프이다.<br>
+보라색으로 표시된건 참조되어 있는 Object이고 빨간색으로 표시되어 있는 건<br>
+특정 시기에는 참조 되어있지만 현재는 범위를 벗어나 참조되지 않는 Object들이다.<br>
+<br>
+<br>
+
+**Sweep:** 그래프를 돌고 난 후 마크되지 않은(참조 되지 않는 Objects) 를 메모리에서 지우고 해당 메모리 공간을 되 찾는다.<br>
+**만약 GC가 작동 할때 프로그램을 중단시키지 않으면 Object를 관리할때 새로운 Object가 생성 될 지 모른다.<br>
+해당 Object는 현재 GC가 동작하고 있는 Object들과 서로 연결되지 않을 가능성이 높고 그로인해 GC는 생성된 Object의 주소값을 지울 것이다.**<br>
+<br>
+<br>
+
+**Mark Sweep Compact 알고리즘**<br>
+그림에서 Memory Heap을 살펴보자 GC가 동작 한 후 메모리 Heap은 새로운 공간들을 얻은 것을 알 수있다.<br>
+해당 공간에는 새로운 Object가 할 당 될 수 있다. 하지만 보다시피 메모리 공간이 조각조각 나있다(fragmented)<br>
+그렇기 때문에 새로운 Object를 할당 할때 남아있는 각각 조각마다 해당 Object크기를 담아 낼 수 없는 경우가 발생 할 것이다.<br>
+**이 경우 JVM은 메모리를 할당 할 수 없어서 OutOfMemoryErr을 발생 시킨다.<br>
+그렇기 때문에 우리는 Mark-Sweep-Compact 알고리즘을 같이 사용한다.**<br>
+<br>
+
+![gc알고리즘2](https://user-images.githubusercontent.com/43705434/132120848-bf31d89a-6eaa-4409-a4e1-50164384998a.PNG)<br>
+<br>
+<br>
+
+**Mark-Sweep-Compact 을 사용하면 아래와 같이 조각난 공간을 합쳐 준다.**<br>
+![gc알고리즘3](https://user-images.githubusercontent.com/43705434/132120849-44c848d4-f36e-4eea-bc5b-5d4373b45774.PNG)<br>
+<br>
+
+이러한 작업을 하기 위해선 **참조되어있는 메모리주소 값을 변경하고 수정하는 작업을 해야 한다.**<br>
+<br>
+<br>
+
+**Mark and Copy 알고리즘**<br>
+
+![gc알고리즘4](https://user-images.githubusercontent.com/43705434/132120844-bec2edbe-7e1a-417e-a366-9aca4e22ce5b.PNG)<br>
+<br>
+
+Mark-Sweep-Compact 같이 사용하고 있는 메모리 주소값은 새로 할당하는 알고리즘 이다.<br>
+Mark and Copy는 위와 같이 GC를 하기전 두가지 메모리 공간을 사용한다.<br>
+A는 메모리안에 사용된 공간과 사용되지 않는 공간이 존재한다. 하지만 B는 완전히 비어있다.<br>
+
+가비지 콜렉션이 실행 될때 다음과 같이 두가지 단계를 수행한다.<br>
+
+1) Mark된 Object를 모두 A메모리에서 지운다.<br>
+2) 이 후, Mark Object를 B에 다시 재 할 당 한다.<br>
+
+**위의 단계는 Object가 Mark되는 것과 동시에 동작 할 수있고 이렇게 하면 프로그램이 GC에 의해 중단되는 시간을 줄여 준다.**<br>
+<br>
 <br>
 <br>
 
