@@ -252,7 +252,11 @@ Native Code 로 변환하게 된다.** ⭐⭐<br>
 <br>
 
 👉 **VB.net / C# / C++ 등 여러 언어로 개발해도 동일한 IL로 만들 수 있다고?**<br>
+-> 여러 언어들이 서로 호환이 가능하다는 얘기가 된다. (동일한 IL이 뽑히기에)
+그럴려면, 기본적인 데이터 타입이 같아야하며 라이브러리도 모든 언어가 동일하게 가져다 쓸 수 있어야 할 것이다.
 
+**그래서 .net FrameWork 내부에 CTS(Common Type System = 언어가 공통으로 사용할 데이터 타입)와
+BCL (Base Class Library) 가 존재하는 것이다 !! **
 
 👉 **JIT 컴파일** (CLR이 아니라 운영체제에 존재하는 것임.)<br>
 JIT : Just-In-Time<br>
