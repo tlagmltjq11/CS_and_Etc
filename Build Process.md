@@ -251,6 +251,9 @@ Native Code 로 변환하게 된다.** ⭐⭐<br>
 <br>
 <br>
 
+👉 **VB.net / C# / C++ 등 여러 언어로 개발해도 동일한 IL로 만들 수 있다고?**<br>
+
+
 👉 **JIT 컴파일** (CLR이 아니라 운영체제에 존재하는 것임.)<br>
 JIT : Just-In-Time<br>
 그렇다면 JIT 컴파일이란 무엇일까?<br>
